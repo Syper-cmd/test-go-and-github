@@ -1,0 +1,34 @@
+name: Go test and run
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # 1. Скачиваем код вашего репозитория на сервер GitHub
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    # 2. Устанавливаем язык Go нужной версии
+    - name: Set up Go
+      uses: actions/configure-go@v5
+      with:
+        go-version: '1.22' # Укажите версию Go, как в вашем go.mod
+
+    # 3. Скачиваем зависимости (если они есть)
+    - name: Install dependencies
+      run: go mod download
+
+    # 4. Проверяем, собирается ли ваш проект
+    # Так как файлы в src, мы проверяем сборку всей папки
+    - name: Build project
+      run: go build -v ./src/...
+
+    # 5. Запускаем тесты (если вы их напишете в будущем)
+    - name: Run tests
+      run: go test -v ./src/...
