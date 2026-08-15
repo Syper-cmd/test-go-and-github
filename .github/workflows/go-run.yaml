@@ -12,11 +12,11 @@ jobs:
     steps:
     # 1. Скачиваем код вашего репозитория на сервер GitHub
     - name: Check out code
-      uses: actions/setup-go@v5
+      uses: actions/checkout@v4
 
     # 2. Устанавливаем язык Go нужной версии
     - name: Set up Go
-      uses: actions/configure-go@v5
+      uses: actions/setup-go@v5
       with:
         go-version: '1.22' # Укажите версию Go, как в вашем go.mod
 
