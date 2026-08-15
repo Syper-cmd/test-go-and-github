@@ -3,3 +3,5 @@ src.exe
 *.exe
 app
 src
+.vscode
+.git
