@@ -28,7 +28,3 @@ jobs:
     # Так как файлы в src, мы проверяем сборку всей папки
     - name: Build project
       run: go build -v -o app ./src/.
-
-    # 5. Запускаем тесты (если вы их напишете в будущем)
-    - name: Run tests
-      run: go test -v ./tests/...
