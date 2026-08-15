@@ -5,6 +5,9 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: write # Дает право создавать релизы и загружать файлы
+
 jobs:
   test:
     runs-on: ubuntu-latest
